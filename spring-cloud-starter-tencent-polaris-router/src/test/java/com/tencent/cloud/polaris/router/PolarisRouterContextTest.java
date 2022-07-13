@@ -38,27 +38,27 @@ public class PolarisRouterContextTest {
 		labels.put("k2", "v2");
 
 		PolarisRouterContext routerContext = new PolarisRouterContext();
-		routerContext.setLabels(PolarisRouterContext.RULE_ROUTER_LABELS, labels);
+		routerContext.putLabels(PolarisRouterContext.ROUTER_LABELS, labels);
 
 		Assert.assertEquals(0, routerContext.getLabels(PolarisRouterContext.TRANSITIVE_LABELS).size());
-		Assert.assertEquals(2, routerContext.getLabels(PolarisRouterContext.RULE_ROUTER_LABELS).size());
-		Assert.assertEquals("v1", routerContext.getLabels(PolarisRouterContext.RULE_ROUTER_LABELS).get("k1"));
-		Assert.assertEquals("v2", routerContext.getLabels(PolarisRouterContext.RULE_ROUTER_LABELS).get("k2"));
-		Assert.assertNull(routerContext.getLabels(PolarisRouterContext.RULE_ROUTER_LABELS).get("k3"));
+		Assert.assertEquals(2, routerContext.getLabels(PolarisRouterContext.ROUTER_LABELS).size());
+		Assert.assertEquals("v1", routerContext.getLabels(PolarisRouterContext.ROUTER_LABELS).get("k1"));
+		Assert.assertEquals("v2", routerContext.getLabels(PolarisRouterContext.ROUTER_LABELS).get("k2"));
+		Assert.assertNull(routerContext.getLabels(PolarisRouterContext.ROUTER_LABELS).get("k3"));
 	}
 
 	@Test
 	public void testSetNull() {
 		PolarisRouterContext routerContext = new PolarisRouterContext();
-		routerContext.setLabels(PolarisRouterContext.RULE_ROUTER_LABELS, null);
+		routerContext.putLabels(PolarisRouterContext.ROUTER_LABELS, null);
 		Assert.assertEquals(0, routerContext.getLabels(PolarisRouterContext.TRANSITIVE_LABELS).size());
-		Assert.assertEquals(0, routerContext.getLabels(PolarisRouterContext.RULE_ROUTER_LABELS).size());
+		Assert.assertEquals(0, routerContext.getLabels(PolarisRouterContext.ROUTER_LABELS).size());
 	}
 
 	@Test
 	public void testGetEmptyRouterContext() {
 		PolarisRouterContext routerContext = new PolarisRouterContext();
 		Assert.assertEquals(0, routerContext.getLabels(PolarisRouterContext.TRANSITIVE_LABELS).size());
-		Assert.assertEquals(0, routerContext.getLabels(PolarisRouterContext.RULE_ROUTER_LABELS).size());
+		Assert.assertEquals(0, routerContext.getLabels(PolarisRouterContext.ROUTER_LABELS).size());
 	}
 }
