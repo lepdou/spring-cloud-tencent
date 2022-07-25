@@ -14,7 +14,6 @@
  * CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  */
-
 package com.tencent.cloud.polaris.endpoint;
 
 import java.util.Map;
@@ -46,13 +45,13 @@ import static org.assertj.core.api.Assertions.assertThat;
  *
  * @author shuiqingliu
  */
-public class PolarisDiscoveryEndPointTest {
+public class PolarisDiscoveryEndpointTest {
 
 	private static NamingServer namingServer;
 
 	private WebApplicationContextRunner contextRunner = new WebApplicationContextRunner()
 			.withConfiguration(AutoConfigurations.of(
-					PolarisDiscoveryEndPointTest.PolarisPropertiesConfiguration.class,
+					PolarisDiscoveryEndpointTest.PolarisPropertiesConfiguration.class,
 					PolarisDiscoveryClientConfiguration.class,
 					PolarisDiscoveryAutoConfiguration.class,
 					PolarisDiscoveryEndpointAutoConfiguration.class))
@@ -83,7 +82,7 @@ public class PolarisDiscoveryEndPointTest {
 			DiscoveryClient discoveryClient = context
 					.getBean(PolarisDiscoveryClient.class);
 			PolarisDiscoveryHandler polarisDiscoveryHandler = context.getBean(PolarisDiscoveryHandler.class);
-			PolarisDiscoveryEndPoint polarisDiscoveryEndPoint = new PolarisDiscoveryEndPoint(polarisDiscoveryProperties, discoveryClient, polarisDiscoveryHandler);
+			PolarisDiscoveryEndpoint polarisDiscoveryEndPoint = new PolarisDiscoveryEndpoint(polarisDiscoveryProperties, discoveryClient, polarisDiscoveryHandler);
 
 			Map<String, Object> mapInfo = polarisDiscoveryEndPoint.polarisDiscovery("java_provider_test");
 
